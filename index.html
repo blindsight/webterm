@@ -15,8 +15,8 @@
     </style>
     <script type="text/javascript" src="webterm.js"></script>
     <Script type="text/javascript">
-    var callMe = function () { 
-        var t0 = performance.now();
+    var jsPaint = function () { 
+        
         var screen = document.getElementById('screen')
         var context = screen.getContext('2d')
         context.font = "38pt Arial"
@@ -25,9 +25,21 @@
 
         context.fillText("Hello Canvas", screen.width / 2 - 150, screen.Height/2 -15)
         context.strokeText("Hello Canvas", screen.width / 2 - 150, screen.Height / 2 -15)
-        var t1 = performance.now();
-        console.log("took:" + (t1 - t0) + " ms")
+
     }
+
+    window.addEventListener("DOMContentLoaded", function() {
+        var t0 = performance.now();
+        jsPaint()
+        var t1 = performance.now();
+        console.log("js took:" + (t1 - t0) + " ms")
+
+        var t2 = performance.now();
+        paintCanvas()
+        var t3 = performance.now();
+        console.log("js took:" + (t3 - t2) + " ms")
+
+    })
 
     </script>
 </head>
