@@ -1,0 +1,40 @@
+<!DOCTYPE HTML >
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #screen {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+    <script type="text/javascript" src="webterm.js"></script>
+    <Script type="text/javascript">
+    var callMe = function () { 
+        var t0 = performance.now();
+        var screen = document.getElementById('screen')
+        var context = screen.getContext('2d')
+        context.font = "38pt Arial"
+        context.fillStyle = "cornflowerblue"
+        context.strokeStyle = "blue"
+
+        context.fillText("Hello Canvas", screen.width / 2 - 150, screen.Height/2 -15)
+        context.strokeText("Hello Canvas", screen.width / 2 - 150, screen.Height / 2 -15)
+        var t1 = performance.now();
+        console.log("took:" + (t1 - t0) + " ms")
+    }
+
+    </script>
+</head>
+
+<body>
+    <canvas id="screen" height="600" width="800">
+    </canvas>
+</body>
+
+</html>
